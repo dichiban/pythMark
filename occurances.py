@@ -1,3 +1,4 @@
+from collections import defaultdict
 import re
 # Text file to string.
 with open("C:/home/pythMark/texts/sherlock.txt") as f:
@@ -6,17 +7,9 @@ with open("C:/home/pythMark/texts/sherlock.txt") as f:
 text = re.sub('[^a-z\ \']+', " ", text)
 words = list(text.split())
 word = set(words)
-word_dict = dict.fromkeys(word, 0)
+word_dict = defaultdict(list)
 
-
-for w in word:
-    word_dict[w] = words.count(w)
+for w in words:
+    word_dict[w].append(w)
 
 print(word_dict)
-
-
-
-        
-
-
-
