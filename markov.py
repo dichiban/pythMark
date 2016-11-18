@@ -16,9 +16,11 @@ for i, w in enumerate(words):
         word_dict[w].append(words[i+1])
 
 initial = random.randint(0, len(words))
-sentence = []
-for i in range(0, 10):
-    sentence.append(word_dict[words[initial]][0])
+current = words[initial]
+sentence = [words[initial]]
 
-print(words[initial])
+for i in range(0, 10):
+    sentence.append(word_dict[current][random.randint(0,len(word_dict[current])-1)])
+    current = word_dict[current][0]
+
 print(sentence)
